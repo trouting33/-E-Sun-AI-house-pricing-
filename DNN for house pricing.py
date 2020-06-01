@@ -36,21 +36,6 @@ data_combined = pd.concat(frames, axis=1)                  #處理train.csv的�
 data = data2                                               #使用train_houser.csv
 label_col = 'total_price'                                  #將'total_price'字串特別存起來，因為它是output Y
 
-
-
-''' THE FOLLOWING CODE IS SAMPLE FROM KAGGLE
-data_csv['sale_yr'] = pd.to_numeric(data_csv.date.str.slice(0, 4))
-data_csv['sale_month'] = pd.to_numeric(data_csv.date.str.slice(4, 6))
-data_csv['sale_day'] = pd.to_numeric(data_csv.date.str.slice(6, 8))
-
-data = pd.DataFrame(data_csv, columns=[
-        'sale_yr','sale_month','sale_day',
-        'bedrooms','bathrooms','sqft_living','sqft_lot','floors',
-        'condition','grade','sqft_above','sqft_basement','yr_built',
-        'zipcode','lat','long','sqft_living15','sqft_lot15','price'])
-label_col = 'price'
-'''
-
 def train_validate_test_split(df, train_part=0.9, validate_part=0.05, test_part=0.05, seed=None):    #資料切割函數
 	np.random.seed(seed)
 	total_size = train_part + validate_part + test_part
@@ -116,14 +101,6 @@ def basic_model_3(x_size, y_size):                                              
     t_model.add(Dense(600, activation="relu", kernel_initializer='normal', 
         kernel_regularizer=regularizers.l1(0.01), bias_regularizer=regularizers.l1(0.01)))
 
-#    t_model.add(Dropout(0.1))
-#    t_model.add(Dense(60, activation="relu", kernel_initializer='normal', 
-#        kernel_regularizer=regularizers.l1_l2(0.01), bias_regularizer=regularizers.l1_l2(0.01)))
-
-		
-#    t_model.add(Dropout(0.2))
-#    t_model.add(Dense(60, activation="relu", kernel_initializer='normal', 
-#        kernel_regularizer=regularizers.l1(0.01), bias_regularizer=regularizers.l1(0.01)))
     t_model.add(Dropout(0))
     t_model.add(Dense(300, activation="relu", kernel_initializer='normal', 
         kernel_regularizer=regularizers.l1(0.01), bias_regularizer=regularizers.l1(0.01)))		
