@@ -19,17 +19,17 @@ from keras.models import load_model
 
 
 
-file1 = "train.csv"                                        #train.csv，此例中不使用
-data1 = pd.read_csv(file1)
+#file1 = "train.csv"                                        #train.csv，此例中不使用
+#data1 = pd.read_csv(file1)
 
 file2 = "train_houser.csv"                                 #train_houser.csv為特定篩選過的欄位
 data2 = pd.read_csv(file2)                               
 
-data11=pd.get_dummies(data1['village'])                    #處理train.csv的資料，但此例中不使用
+#data11=pd.get_dummies(data1['village'])                    #處理train.csv的資料，但此例中不使用
 
-frames = [data11,data2]
+#frames = [data11,data2]
 
-data_combined = pd.concat(frames, axis=1)                  #處理train.csv的資料，但此例中不使用
+#data_combined = pd.concat(frames, axis=1)                  #處理train.csv的資料，但此例中不使用
 
 #############################################資料載入分隔線###################################################
 
